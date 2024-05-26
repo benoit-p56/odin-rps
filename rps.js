@@ -1,3 +1,6 @@
+let humanScore = 0;
+let computerScore = 0;
+
 function getComputerChoice() {
     let x = Math.floor(Math.random() * 3);
 
@@ -26,4 +29,31 @@ function getHumanChoice() {
     }
 }
 
+function playRound(humanChoice, computerChoice) {
+    console.log(`${humanChoice} vs ${computerChoice}`);
 
+    if (humanChoice === computerChoice) {
+        console.log("It's a draw");
+    }
+
+    else if (
+        (humanChoice === "rock" && computerChoice === "scissors") ||
+        (humanChoice === "paper" && computerChoice === "rock") ||
+        (humanChoice === "scissors" && computerChoice === "paper")
+        ) {
+            console.log(`You win: ${humanChoice} beats ${computerChoice}`);
+            ++humanScore;
+    }
+
+    else {
+        console.log(`You lose: ${computerChoice} beats ${humanChoice}`);
+        ++computerScore;
+    }
+
+    return `${humanScore} vs ${computerScore}`;
+}
+
+const user = getHumanChoice();
+const comp = getComputerChoice();
+
+console.log(playRound(user, comp));
