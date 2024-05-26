@@ -25,7 +25,7 @@ function getHumanChoice() {
     }
     else {
         console.log("Please enter a valid choice");
-        getHumanChoice();
+        return getHumanChoice();
     }
 }
 
