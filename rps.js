@@ -31,12 +31,17 @@ function playGame() {
 
     function playRound(humanChoice, computerChoice) {
         console.log(`${humanChoice} vs ${computerChoice}`);
-    
+
+
+        // Rock-Paper-Scissors has 7 possible outcomes: 1 Draw Condition, 3 Win Conditions and 3 Lose Conditions
+
+        //This catches the draw outcome
         if (humanChoice === computerChoice) {
             console.log("It's a draw");
         }
-    
-        else if (
+        
+        //This catches all 3 win outcomes
+        else if ( 
             (humanChoice === "rock" && computerChoice === "scissors") ||
             (humanChoice === "paper" && computerChoice === "rock") ||
             (humanChoice === "scissors" && computerChoice === "paper")
@@ -44,7 +49,8 @@ function playGame() {
                 console.log(`You win: ${humanChoice} beats ${computerChoice}`);
                 ++humanScore;
         }
-    
+        
+        //If the code reaches this point it means the user has lost
         else {
             console.log(`You lose: ${computerChoice} beats ${humanChoice}`);
             ++computerScore;
